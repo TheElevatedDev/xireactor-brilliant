@@ -53,6 +53,7 @@ services:
       - ./api:/app
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-dev}@db:5432/${POSTGRES_DB:-brilliant}
+      SERVICE_FQDN_API_8000: xireactor.65.21.0.108.sslip.io
       ADMIN_EMAIL: ${ADMIN_EMAIL:-}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
       ADMIN_API_KEY: ${ADMIN_API_KEY:-}
@@ -98,6 +99,7 @@ services:
       - ./mcp:/app
     environment:
       BRILLIANT_BASE_URL: http://api:8000
+      SERVICE_FQDN_MCP_8001: xireactor-mcp.65.21.0.108.sslip.io
       BRILLIANT_API_KEY: ${BRILLIANT_API_KEY:-}
       MCP_BASE_URL: ${MCP_BASE_URL:-http://localhost:8011}
       MCP_PORT: "8001"
