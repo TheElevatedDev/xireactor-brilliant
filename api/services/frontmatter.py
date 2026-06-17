@@ -134,7 +134,7 @@ def parse_frontmatter(content: str) -> tuple[dict, str]:
     else:
         meta = _legacy_parse_frontmatter_body(body)
 
-    return meta, remaining
+    return {k: (v.isoformat() if hasattr(v, "isoformat") else v) for k, v in meta.items()}, remaining
 
 
 def extract_title(content: str, filename: str, meta: dict | None = None) -> str:
