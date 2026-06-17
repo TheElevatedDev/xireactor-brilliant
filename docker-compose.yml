@@ -82,6 +82,7 @@ services:
       # compose doesn't crash when unset.
       BRILLIANT_SERVICE_API_KEY: ${BRILLIANT_SERVICE_API_KEY:-}
     restart: unless-stopped
+    labels: ["traefik.http.services.xireactor-api.loadbalancer.server.port=8000"]
 
   mcp:
     build: ./mcp
@@ -116,6 +117,7 @@ services:
       BRILLIANT_API_PUBLIC_URL: ${BRILLIANT_API_PUBLIC_URL:-}
       BRILLIANT_MCP_PUBLIC_URL: ${BRILLIANT_MCP_PUBLIC_URL:-}
     restart: unless-stopped
+    labels: ["traefik.http.services.xireactor-mcp.loadbalancer.server.port=8001"]
 
 volumes:
   pgdata:
